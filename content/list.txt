@@ -1,0 +1,73 @@
+HTTP/1.1 200 OK
+Cache-Control: public, no-cache="Set-Cookie", max-age=3600
+Content-Length: 3801
+Content-Type: text/html
+Expires: Thu, 02 Feb 2017 20:52:21 GMT
+Server: Microsoft-IIS/7.5
+Set-Cookie: ASP.NET_SessionId=uftfl4zevnpzsgavxegomrvm; path=/; HttpOnly
+X-AspNet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+Date: Wed, 01 Feb 2017 20:52:20 GMT
+Connection: close
+
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <title>HeinekingMedia Vertretungsplan - Classic</title>
+    <style type="text/css">
+      html, body { font-family:  Arial; }
+      .head { background-color: #000000; color: #FFFFFF; font-weight: bold; }
+      .TeacherHead { background-color: #FFFFFF; color: #000000; font-weight: normal; }
+      .TeacherHead td { border-top: 2px solid #000000; border-bottom: 1px solid #000000; }
+      .SubTypeHead { background-color: #000000; color: #FFFFFF; font-weight: bold; }
+      .def { background-color: #dedede; color: #000000; }
+      .alt { background-color: #a6c1e0; color: #000000; }
+      .new.def { background-color: #dedede; color: #000000; }
+      .new.alt { background-color: #a6c1e0; color: #000000; }
+      table { width: 100%; margin-top: 5px; background-color: black; }
+      td { padding-left: 4px; padding-right: 4px; }
+      .additionInfoTable { width: 100%; border: 1px solid black; padding: 0; margin: 0; }
+      .additionInfoTable th { background: #000000; color: #FFFFFF; font-weight: bold; }
+      .additionInfoTable td { background: white; color: black; border-bottom: 0px solid black; font-weight: normal; }
+      .headTable { background: white; width: 100%; border: 0px; padding: 0; margin: 0; }
+      .headTable td { background: white; color: black; font-weight: bold; text-align: right; border: 0;}
+      h2 { font-size: 0.8em; margin:0; text-align: right; }
+      h1 { font-size: 2em;margin-bottom:5px; }
+      td.teacherNew { font-weight: bold; }
+      td.teacherOld { opacity: .40; filter: alpha(opacity = 40); -ms-filter: "alpha(opacity = 40)" }
+      span.hilite { font-weight: bold; text-decoration:underline; }
+      .NoSubstitutes { text-align: center; border: 0; }
+    </style>
+    <link rel="stylesheet" type="text/css" href="e4ff3d3d-6122-4b0d-8dc7-99f75fa497a0.css">
+    <script language="javascript">
+    </script>
+  </head>
+  <body>
+    <table class="headTable">
+    <tr><td>Letzte Änderung: 01.02.2017 20:15</td></tr>
+    </table>
+<center><h1>01.02.2017, Mittwoch</h1></center><h1 class="NoSubstitutes">Keine Vertretungen</h1>
+<center><h1>02.02.2017, Donnerstag</h1></center><table class="additionInfoTable">
+<tr><th colspan="2">Nachrichten zum Tag</th></tr>
+<tr><td>Betroffene Klassen</td><td>BO5a, CK_a, CK_b, HT5a, IT_j, IT_y, PC5a, PC6a, UT_a</td></tr>
+</table>
+<table cellspacing="1">
+<tr class="head"><td>Klasse</td><td>Stunde</td><td>Raum</td><td>Vertretungs-Text</td></tr>
+<tr class="def"><td>BO5a</td><td>5-6</td><td>118</td><td>mit Aufgaben</td></tr>
+<tr class="alt"><td>CK_a</td><td>3-4</td><td>40</td><td>Vertretung</td></tr>
+<tr class="def"><td>CK_a</td><td>7</td><td>204</td><td>Entfall</td></tr>
+<tr class="alt"><td>CK_a</td><td>8</td><td>204</td><td>Ebtfall</td></tr>
+<tr class="def"><td>CK_b</td><td>3</td><td>38</td><td>Teilung entfällt</td></tr>
+<tr class="alt"><td>HT5a</td><td>7-8</td><td>223</td><td>Entfall</td></tr>
+<tr class="def"><td>IT_j</td><td>3-6</td><td>209</td><td>Vertretung</td></tr>
+<tr class="alt"><td>IT_y</td><td>5</td><td>223</td><td>bitte Klasse mit Aufgaben entl.</td></tr>
+<tr class="def"><td>PC5a</td><td>1</td><td>54</td><td>Entfall - Unterrichtsbeginn: 9.30 Uhr</td></tr>
+<tr class="alt"><td>PC5a</td><td>2</td><td>54</td><td>Entfall</td></tr>
+<tr class="def"><td>PC5a</td><td>3-4</td><td>153</td><td>Vertretung</td></tr>
+<tr class="alt"><td>PC6a</td><td>5-6</td><td>38</td><td>mit Aufgaben</td></tr>
+<tr class="def"><td>PC6a</td><td>7-8</td><td>38</td><td>Entfall</td></tr>
+<tr class="alt"><td>UT_a</td><td>3-4</td><td>206</td><td>Vertretung</td></tr>
+<tr class="def"><td>UT_a</td><td>7-8</td><td>54</td><td>Vertretung</td></tr>
+</table>
+</body>
+</html>
