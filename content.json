@@ -1,1 +1,96 @@
-false
+{
+  "channel": {
+    "item": [
+      {
+        "title": "Vertretungs-Text: mit Aufgaben",
+        "link": "http://blank.com",
+        "description": "Die Klasse BO5a in den Stunden 5-6 in Raum 118",
+        "guid": "3fa3bac5-edd4-4e97-8a09-2fcd7ea0fe18"
+      },
+      {
+        "title": "Vertretungs-Text: Vertretung",
+        "link": "http://blank.com",
+        "description": "Die Klasse CK_a in den Stunden 3-4 in Raum 40",
+        "guid": "d7436c00-ceb9-4efd-ba0c-3226c5a80e7d"
+      },
+      {
+        "title": "Vertretungs-Text: Entfall",
+        "link": "http://blank.com",
+        "description": "Die Klasse CK_a in der Stunde 7 in Raum 204",
+        "guid": "4c2fbf0c-9d39-43be-abc2-1feb54412ec4"
+      },
+      {
+        "title": "Vertretungs-Text: Ebtfall",
+        "link": "http://blank.com",
+        "description": "Die Klasse CK_a in der Stunde 8 in Raum 204",
+        "guid": "eb998037-f44e-49e8-b4aa-62a5c86bd03f"
+      },
+      {
+        "title": "Vertretungs-Text: Teilung entfällt",
+        "link": "http://blank.com",
+        "description": "Die Klasse CK_b in der Stunde 3 in Raum 38",
+        "guid": "fad3129e-b678-477f-b0bc-ef271e03ec23"
+      },
+      {
+        "title": "Vertretungs-Text: Entfall",
+        "link": "http://blank.com",
+        "description": "Die Klasse HT5a in den Stunden 7-8 in Raum 223",
+        "guid": "c6194f01-04de-4c85-bd1a-2c569d31a6b8"
+      },
+      {
+        "title": "Vertretungs-Text: Vertretung",
+        "link": "http://blank.com",
+        "description": "Die Klasse IT_j in den Stunden 3-6 in Raum 209",
+        "guid": "033126ba-b11e-4475-aebf-1ff1fda35839"
+      },
+      {
+        "title": "Vertretungs-Text: bitte Klasse mit Aufgaben entl.",
+        "link": "http://blank.com",
+        "description": "Die Klasse IT_y in der Stunde 5 in Raum 223",
+        "guid": "ed65a45f-3fab-4ac3-988f-740e95dd7c1f"
+      },
+      {
+        "title": "Vertretungs-Text: Entfall - Unterrichtsbeginn: 9.30 Uhr",
+        "link": "http://blank.com",
+        "description": "Die Klasse PC5a in der Stunde 1 in Raum 54",
+        "guid": "5e8c907d-4249-499b-b224-6b93fbd2d15e"
+      },
+      {
+        "title": "Vertretungs-Text: Entfall",
+        "link": "http://blank.com",
+        "description": "Die Klasse PC5a in der Stunde 2 in Raum 54",
+        "guid": "e9f826cc-fb55-4621-ba92-731e88e810f4"
+      },
+      {
+        "title": "Vertretungs-Text: Vertretung",
+        "link": "http://blank.com",
+        "description": "Die Klasse PC5a in den Stunden 3-4 in Raum 153",
+        "guid": "87812d83-15e1-43c5-ae28-7509f1c3c1af"
+      },
+      {
+        "title": "Vertretungs-Text: mit Aufgaben",
+        "link": "http://blank.com",
+        "description": "Die Klasse PC6a in den Stunden 5-6 in Raum 38",
+        "guid": "fc3a6aea-487e-4010-9d91-d7c234bb01c9"
+      },
+      {
+        "title": "Vertretungs-Text: Entfall",
+        "link": "http://blank.com",
+        "description": "Die Klasse PC6a in den Stunden 7-8 in Raum 38",
+        "guid": "7bb5ab45-5778-4ef0-91a9-bd3feffc16b2"
+      },
+      {
+        "title": "Vertretungs-Text: Vertretung",
+        "link": "http://blank.com",
+        "description": "Die Klasse UT_a in den Stunden 3-4 in Raum 206",
+        "guid": "855e8916-56a7-478d-bb7e-a78353bf8fc4"
+      },
+      {
+        "title": "Vertretungs-Text: Vertretung",
+        "link": "http://blank.com",
+        "description": "Die Klasse UT_a in den Stunden 7-8 in Raum 54",
+        "guid": "72d86a9f-399b-4f51-933c-92f78d11a919"
+      }
+    ]
+  }
+}

@@ -60,7 +60,7 @@ class contentHandler{
     function UPDATE(){
             $url = "http://app.dsbcontrol.de/data/2411de16-a699-4014-8ab4-5fe9200b2e11/e4ff3d3d-6122-4b0d-8dc7-99f75fa497a0/e4ff3d3d-6122-4b0d-8dc7-99f75fa497a0.html";
             $shortname = "list";
-            $delfile = "content/list.txt";
+            $delfile = "content/".$shortname.".txt";
 			$output = "";
             if(file_exists($delfile) and filemtime($delfile) < (time() - 300 )){
                 unlink($delfile);
@@ -187,6 +187,11 @@ class contentHandler{
     
     function ParseXMLToJSON($file) {
         $fileContents= file_get_contents($file);
+			//rss overhead removing
+			unset($fileContents[2]); //<rss version="2.0">
+			for($i=0; $i<=13; $i++){
+				unset($fileContents[3])
+			}
         $fileContents = str_replace(array("\n", "\r", "\t"), '', $fileContents);
         $fileContents = trim(str_replace('"', "'", $fileContents));
         $simpleXml = simplexml_load_string($fileContents);
