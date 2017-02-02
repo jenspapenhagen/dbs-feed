@@ -9,13 +9,16 @@ class contentHandler{
     private $timedateHandler;
 
     //construct
-    function contentHandler(){
+    public function __construct(){
 		$this->fileHandler = new fileHandler();
 		$this->curlHandler = new curlHandler();
         $this->timedateHandler = new timedateHandler();
     }
+	public function contentHandler(){
+        self::__construct();
+    }
 	
-    function guidv4() {
+    public function guidv4() :string {
 		if (function_exists('com_create_guid') === true){
 			return trim(com_create_guid(), '{}');
 		}
@@ -27,13 +30,13 @@ class contentHandler{
 		return $output;
 	}
 	
-	function UPDATE(){
+	public function UPDATE() :string{
             $url = "http://app.dsbcontrol.de/data/2411de16-a699-4014-8ab4-5fe9200b2e11/e4ff3d3d-6122-4b0d-8dc7-99f75fa497a0/e4ff3d3d-6122-4b0d-8dc7-99f75fa497a0.html";
             $shortname = "list";
-            $delfile = "content/".$shortname.".txt";
+            $rawfile = "content/".$shortname.".txt";
 			$output = "";
-            if(file_exists($delfile) and filemtime($delfile) < (time() - 300 )){
-                unlink($delfile);
+            if(file_exists($rawfile) and filemtime($rawfile) < (time() - 300 )){
+                unlink($rawfile);
                 $this->curlHandler->curlWebsite($url, $shortname);
                 $output = "Updated";
             }else{
@@ -44,7 +47,7 @@ class contentHandler{
     }
 	
     //parsing functions
-    function get_linenumber_form_file($file, $search){
+    public function get_linenumber_form_file(string $file, string $search):int{
         $line_number = false;
     
         if ($handle = fopen($file, "r")) {
@@ -64,7 +67,7 @@ class contentHandler{
     }
     
     
-    function getStatus($filename){
+    public function getStatus(string $filename): string{
         $file = "content/".$filename.".txt";
         $statuslinenumber = $this->get_linenumber_form_file($file, "    <tr><td>Letzte ");
         //file in to an array
@@ -77,7 +80,7 @@ class contentHandler{
         return $output;
     }
     
-	function getDates($filename){
+	public function getDates(string $filename): string{
 		$file = "content/".$filename.".txt";
 		$str ="";
 		$stringcutter="";
@@ -88,7 +91,7 @@ class contentHandler{
 
 		
 		for($i=($startdate-1); $i<=($enddate-3); ){
-			if(preg_match('<tr class="def"><td>',$lines[$i]) OR preg_match('<tr class="alt"><td>',$lines[$i])){
+			if( strpos($lines[$i],'class="def"') OR strpos($lines[$i], 'class="alt"') ){
 				$stringcutter = explode("<td>",$lines[$i]);
 				$stringcutter = str_replace("<td>"," ", $stringcutter); 
 				$str .= "\t"."<item>"."\n";
@@ -114,7 +117,7 @@ class contentHandler{
 	
 
 	
-    function writeNewXML(){
+    public function writeNewXML(){
         //del old files and create a new xmlfile
         $contentfile = "content.xml";
         $rssfile = "feed.xml";
@@ -179,7 +182,7 @@ class contentHandler{
     }
 
     
-    function ParseXMLToJSON($file) {
+    public function ParseXMLToJSON(string $file) {
         $fileContents= file_get_contents($file);
         $fileContents = str_replace(array("\n", "\r", "\t"), '', $fileContents);
         $fileContents = trim(str_replace('"', "'", $fileContents));

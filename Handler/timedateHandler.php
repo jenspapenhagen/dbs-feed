@@ -5,12 +5,17 @@ class timedateHandler{
     private $fileHandler;
 
     //construct
-    function timedateHandler(){
+    public function __construct(){
         $this->fileHandler = new fileHandler();
 
     }
+	
+	public function timedateHandler(){
+        self::__construct();
+    }
+	
 
-    function checkTime($time){
+    public function checkTime(string $time) : bool {
         if (preg_match('/\b\d{2}:\d{2}\b/', $time)) {
             return true;
         }else{
@@ -19,7 +24,7 @@ class timedateHandler{
     }
 
 
-    function RFC822Time($date){
+    public function RFC822Time(string $date) : string{
         if(!$this->checkTime($date)){
             $output = "lalalala";
 			return $output;

@@ -1,7 +1,7 @@
 <?php
 class fileHandler{
     
-    function FileExists($file){
+    public function FileExists(string $file):bool{
         $filename = $file.".txt";
     
         if (file_exists($filename)) {
@@ -11,7 +11,7 @@ class fileHandler{
         }
     }
     
-    function FileExistsWithPath($path, $file){
+    public function FileExistsWithPath(string $path,string $file):bool{
         $filename =  $path."/".$file.".txt";
     
         if (file_exists($filename)) {
@@ -22,7 +22,7 @@ class fileHandler{
 
     }
     
-    function XMLFileExistsWithPath($path, $file){
+    public function XMLFileExistsWithPath(string $path,string $file):bool{
         $filename =  $path."/".$file.".xml";
     
         if (file_exists($filename)) {
@@ -33,7 +33,7 @@ class fileHandler{
     }
     
     
-    function WriteTxtFile($file, $rights, $content){
+    public function WriteTxtFile(string $file, int $rights,string $content){
         $filename = $file.".txt";
         $fileName = fopen($filename,"w");
         fwrite($fileName, $content);
@@ -41,7 +41,7 @@ class fileHandler{
         chmod($filename, $rights);
      }
      
-     function WriteTxtFileWithPath($path, $file, $rights, $content){
+     public function WriteTxtFileWithPath(string $path, string $file,int $rights, string $content){
          $filename = $path."/".$file.".txt";
          $fileName = fopen($filename,"w");
          fwrite($fileName, $content);
@@ -49,7 +49,7 @@ class fileHandler{
          chmod($filename, $rights);
      }
      
-     function WriteXMLFileWithPathAndRights($path, $file, $rights, $content){
+     public function WriteXMLFileWithPathAndRights(string $path,string $file,int $rights,string $content){
          $filename = $path."/".$file.".xml";
          $handler = fopen($filename,"w");
          fwrite($handler,$content);
@@ -58,7 +58,7 @@ class fileHandler{
      }
      
      
-    function WriteTxtFileWithPathAndReturnCTimeAndSize($path, $file, $rights, $content){        
+    public function WriteTxtFileWithPathAndReturnCTimeAndSize(string $path,string $file,int $rights,string $content):array{        
     	$filename = $path."/".$file.".txt";
         $handler = fopen($filename,"w");
         fwrite($handler,$content);
@@ -88,11 +88,12 @@ Value    Permission Level
   1    Global Execute
 */
     
-    function setFilerights($file) {
+    public function setFilerights(string $file):bool {
         chmod("$file", 755);
         if (!is_writable($file)){
             return false;
         }
+		return true;
     }
     
 }

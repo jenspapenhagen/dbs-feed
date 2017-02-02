@@ -5,12 +5,16 @@ class curlHandler{
 	private $fileHandler;
 
     //construct
-    function curlHandler(){
+    public function __construct(){
 		$this->fileHandler = new fileHandler();
 		
     }
+	
+	public function curlHandler(){
+        self::__construct();
+    }
 
-    function proxyList(){
+    public function proxyList(): array{
         if(!$this->fileHandler->FileExists("proxy.txt")){
             return false;
         }
@@ -22,14 +26,14 @@ class curlHandler{
         return $line;
     }
 
-    function proxyPort($line){
+    public function proxyPort(array $line): string{
         $port = explode(" ", $line);
         $output = $port[1];
 
         return $output;
     }
 
-    function UserAgentList(){
+    public function UserAgentList(): string{
         if(!$this->fileHandler->FileExists("browser.txt")){
             return false;
         }
@@ -39,7 +43,7 @@ class curlHandler{
         return $randUserAgent;
     }
 
-    function getReferer($url){
+    public function getReferer(string $url): string{
         if(!$this->URLcheck($url)){
             return false;
         }
@@ -50,7 +54,7 @@ class curlHandler{
     }
 
 
-    function URLcheck($url){
+    public function URLcheck(string $url): string{
         if (!filter_var($url, FILTER_VALIDATE_URL) === false) {
             return true;
         } else {
@@ -59,7 +63,7 @@ class curlHandler{
 
     }
 
-	function curlWebsite($url, $savefilename, $proxy=0, $randUserAgent=0){
+	public function curlWebsite(string $url, string $savefilename,int $proxy=0,int $randUserAgent=0) :bool{
 			//File to save the contents to
 			$filename = "content/".$savefilename.".txt";
 			$fp = fopen ($filename, "w+");
@@ -94,6 +98,8 @@ class curlHandler{
 			$data = curl_exec($ch);//get curl response
 		
 			curl_close($ch);
+			
+		return true;
 		}
 	
 	
