@@ -1,9 +1,18 @@
 <?php
+include_once "Handler/fileHandler.php";
+include_once "Handler/curlHandler.php";
+include_once "Handler/timedateHandler.php";
+
 class contentHandler{
-	
+    private $fileHandler;
+    private $curlHandler;
+    private $timedateHandler;
+
     //construct
     function contentHandler(){
-		
+		$this->fileHandler = new fileHandler();
+		$this->curlHandler = new curlHandler();
+        $this->timedateHandler = new timedateHandler();
     }
 	
     function guidv4() {
@@ -18,53 +27,14 @@ class contentHandler{
 		return $output;
 	}
 	
-	function curlWebsite($url, $savefilename, $proxy=0, $randUserAgent=0){
-			//File to save the contents to
-			$filename = "content/".$savefilename.".txt";
-			$fp = fopen ($filename, "w+");
-		
-			//Here is the file we are downloading, replace spaces with %20
-			$ch = curl_init(str_replace(" ","%20",$url));
-			if($randUserAgent != 0 and file_exists("browser.txt")){
-				$f_contents = file("browser.txt");
-				$randUserAgent = $f_contents[rand(0, count($f_contents) - 1)];
-				curl_setopt($ch, CURLOPT_USERAGENT,$randUserAgent);
-			}else{
-				curl_setopt($ch, CURLOPT_USERAGENT,"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:34.0) Gecko/20100101 Firefox/34.0");
-			}
-			
-			curl_setopt($ch, CURLOPT_HEADER, 1);
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-			curl_setopt($ch, CURLOPT_TIMEOUT, 50);
-			curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 20);
-			curl_setopt($ch, CURLOPT_REFERER, 'http://www.marinetraffic.com/');//hardcoded for this project
-
-			if($proxy != 0 and file_exists("proxy.txt")){
-				//get random proxy form list
-				$f_contents = file("proxy.txt");
-				$line = $f_contents[rand(0, count($f_contents) - 1)];
-				$port = explode(" ", $line);
-				curl_setopt($ch, CURLOPT_PROXYAUTH, CURLAUTH_NTLM);
-				curl_setopt($ch, CURLOPT_PROXY, $line);
-				curl_setopt($ch, CURLOPT_PROXYPORT, $port[1]);
-			}
-			//give curl the file pointer so that it can write to it
-			curl_setopt($ch, CURLOPT_FILE, $fp);
-		
-			$data = curl_exec($ch);//get curl response
-		
-			curl_close($ch);
-		}
-	
-
-    function UPDATE(){
+	function UPDATE(){
             $url = "http://app.dsbcontrol.de/data/2411de16-a699-4014-8ab4-5fe9200b2e11/e4ff3d3d-6122-4b0d-8dc7-99f75fa497a0/e4ff3d3d-6122-4b0d-8dc7-99f75fa497a0.html";
             $shortname = "list";
             $delfile = "content/".$shortname.".txt";
 			$output = "";
             if(file_exists($delfile) and filemtime($delfile) < (time() - 300 )){
                 unlink($delfile);
-                $this->curlWebsite($url, $shortname);
+                $this->curlHandler->curlWebsite($url, $shortname);
                 $output = "Updated";
             }else{
                 $output = "Update only every 5min";
@@ -146,39 +116,62 @@ class contentHandler{
     function writeNewXML(){
         //del old files and create a new xmlfile
         $contentfile = "content.xml";
+        $rssfile = "feed.xml";
+        $jsonfile = "content.json";
         if(file_exists($contentfile)){
             unlink($contentfile);
-            unlink("content.json");
+            unlink($rssfile);
+            unlink($jsonfile);
         }
+
         $newXMLfile = fopen($contentfile, "a+");
-		
+        $newRSSfile = fopen($rssfile, "a+");
 		
 		//the header of the XML
-        $str = "<?xml version=\"1.0\" encoding=\"UTF-8\"";
-        $str .= "?>"."\n";
-		$str .= '<rss version="2.0">'."\n";
-		$str .= '<channel>'."\n";
-        $str .= "<title>Digitales Schwarzes Brett</title>"."\n";
-		$str .= "<description>Das Digitales Schwarzes Brett ohne nervige App</description>"."\n";
-		$str .= "<link>http://www.google.com</link>"."\n";
-		$str .= "<copyright>Copyright 2017 </copyright>"."\n";
-		$str .= "<docs>http://blogs.law.harvard.edu/tech/rss</docs>"."\n";
-		$str .= "<language>en-us</language>"."\n";
-		$str .= "<lastBuildDate>".gmdate(DATE_RFC822,strtotime($this->getStatus("list")))."</lastBuildDate>"."\n";
-		$str .= "<managingEditor>jens.papenhagen@web.de  (Jens Papenhagen)</managingEditor>"."\n";
-		$str .= "<pubDate>".gmdate(DATE_RFC822,strtotime(date("Y-m-d H:i:s T",time())))."</pubDate>"."\n";
-		$str .= "<webMaster>jens.papenhagen@web.de  (Jens Papenhagen)</webMaster>"."\n";
-		$str .= "<generator>uglyHTML2RSS(0.0.1)</generator>"."\n";
+        $XMLheader = "<?xml version=\"1.0\" encoding=\"UTF-8\"";
+        $XMLheader .= "?>"."\n";
+		
+        //rss header
+        $RSSheader = '<rss version="2.0">'."\n";
+        $RSSheader .= "<title>Digitales Schwarzes Brett</title>"."\n";
+		$RSSheader .= "<description>Das Digitales Schwarzes Brett ohne nervige App</description>"."\n";
+		$RSSheader .= "<link>http://www.google.com</link>"."\n";
+		$RSSheader .= "<copyright>Copyright 2017 </copyright>"."\n";
+		$RSSheader .= "<docs>http://blogs.law.harvard.edu/tech/rss</docs>"."\n";
+		$RSSheader .= "<language>en-us</language>"."\n";
+		$RSSheader .= "<lastBuildDate>".$this->timedateHandler->RFC822Time($this->getStatus("list"))."</lastBuildDate>"."\n";
+		$RSSheader .= "<managingEditor>jens.papenhagen@web.de  (Jens Papenhagen)</managingEditor>"."\n";
+		$RSSheader .= "<pubDate>".$this->timedateHandler->RFC822Time(date("Y-m-d H:i:s T",time()))."</pubDate>"."\n";
+        $RSSheader .= "<webMaster>jens.papenhagen@web.de  (Jens Papenhagen)</webMaster>"."\n";
+        $RSSheader .= "<generator>uglyHTML2RSS(0.0.1)</generator>"."\n";
+		
+		//XML header
+		$XMLheader2 = '<channel>'."\n";
 		
 		//body of the XML
-        $str .= $this->getDates("list");
+        $XMLbody = $this->getDates("list");
 
 		//footer of the XML
-        $str .= "</channel>";
+        $XMLfooter = "</channel>";
+		$RSSfooter = "</rss>";
 
         //save the XML file
-        fwrite($newXMLfile, $str);
+        $xmlbuild = $XMLheader;
+		$xmlbuild .= $XMLheader2;
+        $xmlbuild .= $XMLbody;
+        $xmlbuild .= $XMLfooter;
+        fwrite($newXMLfile, $xmlbuild);
         fclose($newXMLfile);
+
+        //save the RSS file
+        $rssbuild = $XMLheader;
+        $rssbuild .= $RSSheader;
+		$rssbuild .= $XMLheader2;
+        $rssbuild .= $XMLbody;
+        $rssbuild .= $XMLfooter;
+		$rssbuild .= $RSSfooter;
+        fwrite($newRSSfile, $rssbuild);
+        fclose($newRSSfile);
 
        //convert to JSON for cross domain fuckup of XML. thanks obama
        //$this->ParseXMLToJSON($contentfile);
@@ -187,11 +180,6 @@ class contentHandler{
     
     function ParseXMLToJSON($file) {
         $fileContents= file_get_contents($file);
-			//rss overhead removing
-			unset($fileContents[2]); //<rss version="2.0">
-			for($i=0; $i<=13; $i++){
-				unset($fileContents[3])
-			}
         $fileContents = str_replace(array("\n", "\r", "\t"), '', $fileContents);
         $fileContents = trim(str_replace('"', "'", $fileContents));
         $simpleXml = simplexml_load_string($fileContents);

@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<title>Digitales Schwarzes Brett</title>
+<description>Das Digitales Schwarzes Brett ohne nervige App</description>
+<link>http://www.google.com</link>
+<copyright>Copyright 2017 </copyright>
+<docs>http://blogs.law.harvard.edu/tech/rss</docs>
+<language>en-us</language>
+<lastBuildDate>Thu, 02 Feb 17 14:00:00 +0000</lastBuildDate>
+<managingEditor>jens.papenhagen@web.de  (Jens Papenhagen)</managingEditor>
+<pubDate>Thu, 02 Feb 17 14:36:05 +0000</pubDate>
+<webMaster>jens.papenhagen@web.de  (Jens Papenhagen)</webMaster>
+<generator>uglyHTML2RSS(0.0.1)</generator>
 <channel>
 	<item>
 	<title>Vertretungs-Text: Vertretung</title>
@@ -60,4 +72,4 @@
 	<description>Die Klasse UT_a in der Stunde 6 in Raum 54</description>
 	<guid>c8a39ee3-f55a-4533-b400-a0862199de04</guid>
 	</item>
-</channel>
+</channel></rss>
