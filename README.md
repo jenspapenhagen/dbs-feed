@@ -1,6 +1,6 @@
-# digitale Schwarzebrett
+# digitales Schwarzes Brett
 
-digitale Schwarzebrett nun auch mal ohne bloat app
+digitales Schwarzes Brett nun auch mal ohne bloat app
 
   - clean RSS feed
   - clean JSON
