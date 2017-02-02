@@ -86,26 +86,27 @@ class contentHandler{
 		$enddate = $this->get_linenumber_form_file($file, '</body>');
         $lines = file($file);
 
-
+		
 		for($i=($startdate-1); $i<=($enddate-3); ){
-			$stringcutter = explode("<td>",$lines[$i]);
-			$stringcutter = str_replace("<td>"," ", $stringcutter); 
-			$str .= "\t"."<item>"."\n";
-			$str .= "\t"."<title>Vertretungs-Text: ".trim(strip_tags($stringcutter[4]))."</title>"."\n"; //mit Aufgaben
-			$str .= "\t"."<link>http://blank.com</link>"."\n";
-			$str .= "\t"."<description>Die Klasse ".strip_tags($stringcutter[1]);
-			
-			$stunden = strip_tags($stringcutter[2]);
-				if(strlen($stunden) > 1 ){
-					$str .= " in den Stunden ".$stunden;
-				}else{
-					$str .= " in der Stunde ".$stunden;
-				}
-			
-			$str .= " in Raum ".strip_tags($stringcutter[3])."</description>"."\n";
-			$str .= "\t"."<guid>".$this->guidv4()."</guid>\n";
-			$str .= "\t"."</item>\n";
-			
+			if(preg_match('<tr class="def"><td>',$lines[$i]) OR preg_match('<tr class="alt"><td>',$lines[$i])){
+				$stringcutter = explode("<td>",$lines[$i]);
+				$stringcutter = str_replace("<td>"," ", $stringcutter); 
+				$str .= "\t"."<item>"."\n";
+				$str .= "\t"."<title>Vertretungs-Text: ".trim(strip_tags($stringcutter[4]))."</title>"."\n"; //mit Aufgaben
+				$str .= "\t"."<link>http://blank.com</link>"."\n";
+				$str .= "\t"."<description>Die Klasse ".strip_tags($stringcutter[1]);
+				
+				$stunden = strip_tags($stringcutter[2]);
+					if(strlen($stunden) > 1 ){
+						$str .= " in den Stunden ".$stunden;
+					}else{
+						$str .= " in der Stunde ".$stunden;
+					}
+				
+				$str .= " in Raum ".strip_tags($stringcutter[3])."</description>"."\n";
+				$str .= "\t"."<guid>".$this->guidv4()."</guid>\n";
+				$str .= "\t"."</item>\n";
+			}
 			$i++;
 		}
         return $str;
