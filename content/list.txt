@@ -1,0 +1,92 @@
+HTTP/1.1 200 OK
+Cache-Control: public, no-cache="Set-Cookie", max-age=3600
+Content-Length: 5313
+Content-Type: text/html
+Expires: Thu, 16 Feb 2017 06:14:26 GMT
+Server: Microsoft-IIS/7.5
+Set-Cookie: ASP.NET_SessionId=lvowy0h0phf1jpvvk5kxz2jd; path=/; HttpOnly
+X-AspNet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+Date: Wed, 15 Feb 2017 06:14:26 GMT
+Connection: close
+
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <title>HeinekingMedia Vertretungsplan - Classic</title>
+    <style type="text/css">
+      html, body { font-family:  Arial; }
+      .head { background-color: #000000; color: #FFFFFF; font-weight: bold; }
+      .TeacherHead { background-color: #FFFFFF; color: #000000; font-weight: normal; }
+      .TeacherHead td { border-top: 2px solid #000000; border-bottom: 1px solid #000000; }
+      .SubTypeHead { background-color: #000000; color: #FFFFFF; font-weight: bold; }
+      .def { background-color: #dedede; color: #000000; }
+      .alt { background-color: #a6c1e0; color: #000000; }
+      .new.def { background-color: #dedede; color: #000000; }
+      .new.alt { background-color: #a6c1e0; color: #000000; }
+      table { width: 100%; margin-top: 5px; background-color: black; }
+      td { padding-left: 4px; padding-right: 4px; }
+      .additionInfoTable { width: 100%; border: 1px solid black; padding: 0; margin: 0; }
+      .additionInfoTable th { background: #000000; color: #FFFFFF; font-weight: bold; }
+      .additionInfoTable td { background: white; color: black; border-bottom: 0px solid black; font-weight: normal; }
+      .headTable { background: white; width: 100%; border: 0px; padding: 0; margin: 0; }
+      .headTable td { background: white; color: black; font-weight: bold; text-align: right; border: 0;}
+      h2 { font-size: 0.8em; margin:0; text-align: right; }
+      h1 { font-size: 2em;margin-bottom:5px; }
+      td.teacherNew { font-weight: bold; }
+      td.teacherOld { opacity: .40; filter: alpha(opacity = 40); -ms-filter: "alpha(opacity = 40)" }
+      span.hilite { font-weight: bold; text-decoration:underline; }
+      .NoSubstitutes { text-align: center; border: 0; }
+    </style>
+    <link rel="stylesheet" type="text/css" href="e4ff3d3d-6122-4b0d-8dc7-99f75fa497a0.css">
+    <script language="javascript">
+    </script>
+  </head>
+  <body>
+    <table class="headTable">
+    <tr><td>Letzte Änderung: 15.02.2017 01:07</td></tr>
+    </table>
+<center><h1>15.02.2017, Mittwoch</h1></center><table class="additionInfoTable">
+<tr><th colspan="2">Nachrichten zum Tag</th></tr>
+<tr><td>Betroffene Klassen</td><td><span>A_a</span>, <span>BO5a</span>, <span>BO6a</span>, <span>CK_a</span>, <span>CK_b</span>, <span>HT5a</span>, <span>IT_y</span>, <span>PC5a</span>, <span>VM</span></td></tr>
+</table>
+<table cellspacing="1">
+<tr class="head"><td>Klasse</td><td>Stunde</td><td>Raum</td><td>Vertretungs-Text</td></tr>
+<tr class="def"><td>A_a</td><td>1-2</td><td>58</td><td>Vertretung</td></tr>
+<tr class="alt"><td>A_a</td><td>3-4</td><td>58</td><td>Vertretung</td></tr>
+<tr class="def"><td>BO5a</td><td>3</td><td>202</td><td>Entfall - Unterrichtsbeginn:11.30 Uhr</td></tr>
+<tr class="alt"><td>BO5a</td><td>4</td><td>202</td><td>Entfall</td></tr>
+<tr class="def"><td>BO5a</td><td>5</td><td>103</td><td>Vertretung</td></tr>
+<tr class="alt"><td>BO6a</td><td>5-6</td><td>127</td><td>Vertretung</td></tr>
+<tr class="def"><td>CK_a</td><td>1</td><td>40</td><td>Entfall - Unterrichtsbeginn:9.30 Uhr</td></tr>
+<tr class="alt"><td>CK_a</td><td>2</td><td>40</td><td>Entfall</td></tr>
+<tr class="def"><td>CK_a</td><td>3-4</td><td>153</td><td>Vertretung</td></tr>
+<tr class="alt"><td>CK_b</td><td>1</td><td>38</td><td>Unterricht bei Aurubis</td></tr>
+<tr class="def"><td>CK_b</td><td>2</td><td>38</td><td>Unterricht bei Aurubis</td></tr>
+<tr class="alt"><td>CK_b</td><td>3-4</td><td>38</td><td>Unterricht bei Aurubis</td></tr>
+<tr class="def"><td>CK_b</td><td>5-6</td><td>153</td><td>mit Aufgaben</td></tr>
+<tr class="alt"><td>HT5a</td><td>3-4</td><td>147</td><td>Vertretung</td></tr>
+<tr class="def"><td>IT_y</td><td>2</td><td>118</td><td>Unterrichtsbeginn:8.30 Uhr - EuR in R. 118</td></tr>
+<tr class="alt"><td>IT_y</td><td>3-5</td><td>118</td><td>EuR in R. 118</td></tr>
+<tr class="def"><td>IT_y</td><td>6-7</td><td>118</td><td>EUR in R. 118</td></tr>
+<tr class="alt"><td>PC5a</td><td>1</td><td>54</td><td>Unterrichtsbeginn: 7.45 Uhr</td></tr>
+<tr class="def"><td>PC5a</td><td>2</td><td>54</td><td>Vertretung</td></tr>
+<tr class="alt"><td>PC5a</td><td>7</td><td>206</td><td>bereits vorgeholt in der 1. + 2. Std.</td></tr>
+<tr class="def"><td>PC5a</td><td>8</td><td>206</td><td>bereits vorgeholt</td></tr>
+<tr class="alt"><td>VM</td><td>4</td><td>33</td><td>Vertretung</td></tr>
+</table>
+<center><h1>16.02.2017, Donnerstag</h1></center><table class="additionInfoTable">
+<tr><th colspan="2">Nachrichten zum Tag</th></tr>
+<tr><td>Betroffene Klassen</td><td>BO5a, CK_b, HT5a, HT6a, IT_y</td></tr>
+</table>
+<table cellspacing="1">
+<tr class="head"><td>Klasse</td><td>Stunde</td><td>Raum</td><td>Vertretungs-Text</td></tr>
+<tr class="def"><td>BO5a</td><td>5-6</td><td>118</td><td>mit Aufgaben vom Team</td></tr>
+<tr class="alt"><td>CK_b</td><td>3</td><td>38</td><td>Teilung entfällt</td></tr>
+<tr class="def"><td>HT5a</td><td>7-8</td><td>223</td><td>Entfall</td></tr>
+<tr class="alt"><td>HT6a</td><td>5</td><td>103</td><td>Vertretung</td></tr>
+<tr class="def"><td>HT6a</td><td>6</td><td>103</td><td>bitte Klasse mit Aufgaben entlassen</td></tr>
+<tr class="alt"><td>IT_y</td><td>5</td><td>223</td><td>Vertretung</td></tr>
+</table>
+</body>
+</html>
