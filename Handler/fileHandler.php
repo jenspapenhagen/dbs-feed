@@ -2,7 +2,7 @@
 class fileHandler{
     
     public function FileExists(string $file):bool{
-        $filename = $file.".txt";
+        $filename = $file;
     
         if (file_exists($filename)) {
             return true;
@@ -12,7 +12,7 @@ class fileHandler{
     }
     
     public function FileExistsWithPath(string $path,string $file):bool{
-        $filename =  $path."/".$file.".txt";
+        $filename =  $path."/".$file;
     
         if (file_exists($filename)) {
             return true;
